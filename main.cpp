@@ -42,14 +42,14 @@ static GLuint inner_mode = GL_SMOOTH;
 static GLuint tex_state = GL_TRUE;
 static int state_chang;
 
-float anklea = 0, anklex = 0, ankley = 0, anklez = 1;		//¤â¨y
-float plama, plamx = 0, plamy = 0, plamz = 0;			//¤â´x (ÀR¤î)
-float anklef1a[2], anklef1x[2], anklef1y[2], anklef1z[2];	//©æ«ü
-float anklef2a[3], anklef2x[3], anklef2y[3], anklef2z[3];	//­¹«ü
-float anklef3a[3], anklef3x[3], anklef3y[3], anklef3z[3];	//¤¤«ü
-float anklef4a[3], anklef4x[3], anklef4y[3], anklef4z[3];	//µL¦W«ü
-float anklef5a[3], anklef5x[3], anklef5y[3], anklef5z[3];	//¤p«ü
-//	  ^^^Âà°Ê¶q		^^^Âà°Ê¶bx		^^^Âà°Ê¶by		^^^Âà°Ê¶bz
+float anklea = 0, anklex = 0, ankley = 0, anklez = 1;		//æ‰‹è‚˜
+float plama, plamx = 0, plamy = 0, plamz = 0;			//æ‰‹æŽŒ (éœæ­¢)
+float anklef1a[2], anklef1x[2], anklef1y[2], anklef1z[2];	//æ‹‡æŒ‡
+float anklef2a[3], anklef2x[3], anklef2y[3], anklef2z[3];	//é£ŸæŒ‡
+float anklef3a[3], anklef3x[3], anklef3y[3], anklef3z[3];	//ä¸­æŒ‡
+float anklef4a[3], anklef4x[3], anklef4y[3], anklef4z[3];	//ç„¡åæŒ‡
+float anklef5a[3], anklef5x[3], anklef5y[3], anklef5z[3];	//å°æŒ‡
+//	  ^^^è½‰å‹•é‡		^^^è½‰å‹•è»¸x		^^^è½‰å‹•è»¸y		^^^è½‰å‹•è»¸z
 
 int state = 1;
 
@@ -58,123 +58,119 @@ static int WinHeight = 600;
 
 void standby() {
 	state = 1;
-	anklea = 120, anklex = 0, ankley = 0, anklez = 1;  //¤â´x
-	plama = 0, plamx = 0, plamy = 0, plamz = 0;//¤â´x
+	anklea = 120, anklex = 0, ankley = 0, anklez = 1;  //æ‰‹æŽŒ
+	plama = 0, plamx = 0, plamy = 0, plamz = 0;//æ‰‹æŽŒ
 
 
 
 //-----------------------------------------	
-	anklef2a[0] = -10;		//­¹«ü±µ´x
+	anklef2a[0] = 10;		//é£ŸæŒ‡æŽ¥æŽŒ
 	anklef2x[0] = 0;
 	anklef2y[0] = 0;
 	anklef2z[0] = 1;
 
-	anklef2a[1] = 3;	//­¹«ü1
+	anklef2a[1] = 3;	//é£ŸæŒ‡1
 	anklef2x[1] = 0;
 	anklef2y[1] = 0;
 	anklef2z[1] = 1;
 
-	anklef2a[2] = 3;	//­¹«ü2
+	anklef2a[2] = 3;	//é£ŸæŒ‡2
 	anklef2x[2] = 0;
 	anklef2y[2] = 0;
 	anklef2z[2] = 1;
 //-----------------------------------------	
-	anklef3a[0] = 10;		//­¹«ü±µ´x
+	anklef3a[0] = 10;		//é£ŸæŒ‡æŽ¥æŽŒ
 	anklef3x[0] = 0;
 	anklef3y[0] = 0;
 	anklef3z[0] = 1;
 
-	anklef3a[1] = -10;	//­¹«ü1
+	anklef3a[1] = -10;	//é£ŸæŒ‡1
 	anklef3x[1] = 0;
 	anklef3y[1] = 0;
 	anklef3z[1] = 1;
 
-	anklef3a[2] = -10;	//­¹«ü2
+	anklef3a[2] = -10;	//é£ŸæŒ‡2
 	anklef3x[2] = 0;
 	anklef3y[2] = 0;
 	anklef3z[2] = 1;
 //-----------------------------------------	
-	anklef4a[0] = 10;		//­¹«ü±µ´x
+	anklef4a[0] = 10;		//é£ŸæŒ‡æŽ¥æŽŒ
 	anklef4x[0] = 0;
 	anklef4y[0] = 0;
 	anklef4z[0] = 1;
 
-	anklef4a[1] = -10;	//­¹«ü1
+	anklef4a[1] = -10;	//é£ŸæŒ‡1
 	anklef4x[1] = 0;
 	anklef4y[1] = 0;
 	anklef4z[1] = 1;
 
-	anklef4a[2] = -10;	//­¹«ü2
+	anklef4a[2] = -10;	//é£ŸæŒ‡2
 	anklef4x[2] = 0;
 	anklef4y[2] = 0;
 	anklef4z[2] = 1;
 //-----------------------------------------	
-	anklef5a[0] = 10;		//­¹«ü±µ´x
+	anklef5a[0] = 10;		//é£ŸæŒ‡æŽ¥æŽŒ
 	anklef5x[0] = 0;
 	anklef5y[0] = 0;
 	anklef5z[0] = 1;
 
-	anklef5a[1] = -10;	//­¹«ü1
+	anklef5a[1] = -10;	//é£ŸæŒ‡1
 	anklef5x[1] = 0;
 	anklef5y[1] = 0;
 	anklef5z[1] = 1;
 
-	anklef5a[2] = -10;	//­¹«ü2
+	anklef5a[2] = -10;	//é£ŸæŒ‡2
 	anklef5x[2] = 0;
 	anklef5y[2] = 0;
 	anklef5z[2] = 1;
 
 //-------------------------------											   //-----------------------------------------	
-	anklef1a[0] = 15;		//­¹«ü±µ´x
+	anklef1a[0] = 15;		//é£ŸæŒ‡æŽ¥æŽŒ
 	anklef1x[0] = 0;
 	anklef1y[0] = 0;
 	anklef1z[0] = 0;
 
-	anklef1a[1] = -10;	//­¹«ü1
+	anklef1a[1] = -10;	//é£ŸæŒ‡1
 	anklef1x[1] = 0;
 	anklef1y[1] = 0;
 	anklef1z[1] = 0;
 
-	anklef1a[2] = -10;	//­¹«ü2
-	anklef1x[2] = 0;
-	anklef1y[2] = 0;
-	anklef1z[2] = 0;
 }
 
 void draw_hand(void)
 {
-	glPushMatrix();						//¤WÁu
+	glPushMatrix();						//ä¸Šè‡‚
 	glScalef(4, 1, 1);
 	glColor3ub(255, 177, 98);
 	glutSolidSphere(7.0, 30.0, 30.0);
 	glPopMatrix();
 
-	glTranslatef(anklex - 25, 0.0, 0.0);	//¨yÃö¸`
+	glTranslatef(anklex - 25, 0.0, 0.0);	//è‚˜é—œç¯€
 	glRotatef(anklea, anklex, ankley, anklez);
 
-	glPushMatrix();						//¨yÃö¸`
+	glPushMatrix();						//è‚˜é—œç¯€
 	glColor3ub(219, 156, 53);
 	glutSolidSphere(5.0, 30.0, 30.0);
 	glPopMatrix();
 
-	glTranslatef(-22.0, 0.0, 0.0);		//¤UÁu
+	glTranslatef(-22.0, 0.0, 0.0);		//ä¸‹è‡‚
 
-	glPushMatrix();						//¤UÁu
+	glPushMatrix();						//ä¸‹è‡‚
 	glScalef(4, 1, 1);
 	glColor3ub(255, 177, 98);
 	glutSolidSphere(6.0, 30.0, 30.0);
 	glPopMatrix();
 
-	glTranslatef(-22.0, 0.0, 0.0);		//´xÃö¸`
+	glTranslatef(-22.0, 0.0, 0.0);		//æŽŒé—œç¯€
 	glRotatef(0, 0, 0, 0);
 
-	glPushMatrix();						//´xÃö¸`
+	glPushMatrix();						//æŽŒé—œç¯€
 	glColor3ub(219, 156, 53);
 	glutSolidSphere(3.0, 30.0, 30.0);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-10.0, 0.0, 3);		//´x
+	glTranslatef(-10.0, 0.0, 3);		//æŽŒ
 
 	glPushMatrix();
 	glColor3ub(255, 102, 125);
@@ -186,9 +182,9 @@ void draw_hand(void)
 //------------------------------
 	glTranslated(-11.0, -0.5, -3);
 	
-	glPushMatrix();//­¹«ü±µ´xÃö¸`
+	glPushMatrix();//é£ŸæŒ‡æŽ¥æŽŒé—œç¯€
 	glScaled(0.85, 0.85, 0.85);
-//------------------------------------------------------------­¹«ü
+//------------------------------------------------------------é£ŸæŒ‡
 	glTranslatef(-7, -5, 0.0);
 	glRotatef(anklef2a[0], anklef2x[0], anklef2y[0], anklef2z[0]);
 
@@ -198,7 +194,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-4, 0, 0);//­¹«ü¸`3
+	glTranslatef(-4, 0, 0);//é£ŸæŒ‡ç¯€3
 
 	glPushMatrix();
 	glScalef(1.2, 0.6, 1);
@@ -207,7 +203,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-4, 0, 0);//­¹«ü¤¤Ãö¸`
+	glTranslatef(-4, 0, 0);//é£ŸæŒ‡ä¸­é—œç¯€
 	glRotatef(anklef2a[1], anklef2x[1], anklef2y[1], anklef2z[1]);
 
 	glPushMatrix();
@@ -216,7 +212,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-3.0, 0, 0.0);//­¹«ü¸`2
+	glTranslatef(-3.0, 0, 0.0);//é£ŸæŒ‡ç¯€2
 
 	glPushMatrix();
 	glScalef(1, 0.6, 1);
@@ -225,7 +221,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-3, 0, 0.0);//­¹«ü¤WÃö¸`
+	glTranslatef(-3, 0, 0.0);//é£ŸæŒ‡ä¸Šé—œç¯€
 	glRotatef(anklef2a[2], anklef2x[2], anklef2y[2], anklef2z[2]);
 
 	glPushMatrix();
@@ -234,7 +230,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-2.5, 0.0, 0.0); //­¹«ü¸`3
+	glTranslatef(-2.5, 0.0, 0.0); //é£ŸæŒ‡ç¯€3
 
 	glPushMatrix();
 	glRotatef(20.0, 0, 1, 1.0);
@@ -244,11 +240,11 @@ void draw_hand(void)
 	glPopMatrix();
 
 	glPopMatrix();
-//--------¤@®Ú¤â«ü--------
+//--------ä¸€æ ¹æ‰‹æŒ‡--------
 	glTranslatef(-1, 4, 0);
 
 	glPushMatrix();
-//------------------------------------------------------------¤¤«ü
+//------------------------------------------------------------ä¸­æŒ‡
 	glTranslated(-7, -4.5, 0.0);
 	glRotatef(anklef3a[0], anklef3x[0], anklef3y[0], anklef3z[0]);
 
@@ -258,7 +254,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-4, 0, 0);//¤¤«ü¸`3
+	glTranslatef(-4, 0, 0);//ä¸­æŒ‡ç¯€3
 
 	glPushMatrix();
 	glScalef(1.2, 0.6, 1);
@@ -267,7 +263,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-4, 0, 0);//¤¤«ü¤¤Ãö¸`
+	glTranslatef(-4, 0, 0);//ä¸­æŒ‡ä¸­é—œç¯€
 	glRotatef(anklef3a[1], anklef3x[1], anklef3y[1], anklef3z[1]);
 
 	glPushMatrix();
@@ -276,7 +272,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-3.0, 0, 0.0);//¤¤«ü¸`2
+	glTranslatef(-3.0, 0, 0.0);//ä¸­æŒ‡ç¯€2
 
 	glPushMatrix();
 	glScalef(1, 0.6, 1);
@@ -285,7 +281,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-3, 0, 0.0);//¤¤«ü¤WÃö¸`
+	glTranslatef(-3, 0, 0.0);//ä¸­æŒ‡ä¸Šé—œç¯€
 	glRotatef(anklef3a[2], anklef3x[2], anklef3y[2], anklef3z[2]);
 
 	glPushMatrix();
@@ -294,7 +290,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-2.5, 0.0, 0.0); //¤¤«ü¸`3
+	glTranslatef(-2.5, 0.0, 0.0); //ä¸­æŒ‡ç¯€3
 
 	glPushMatrix();
 	glRotatef(20.0, 0, 1, 1.0);
@@ -304,12 +300,12 @@ void draw_hand(void)
 	glPopMatrix();
 
 	glPopMatrix();
-//--------¤@®Ú¤â«ü--------
+//--------ä¸€æ ¹æ‰‹æŒ‡--------
 	glTranslatef(-1, 4, 0);
 
 	glPushMatrix();
 	glScaled(0.9, 0.9, 0.9);
-	//------------------------------µL¦W«ü
+	//------------------------------ç„¡åæŒ‡
 	glTranslatef(-7, -5, 0.0);
 	glRotatef(anklef4a[0], anklef4x[0], anklef4y[0], anklef4z[0]);
 
@@ -319,7 +315,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-4, 0, 0);//¤¤«ü¸`3
+	glTranslatef(-4, 0, 0);//ä¸­æŒ‡ç¯€3
 
 	glPushMatrix();
 	glScalef(1.2, 0.6, 1);
@@ -328,7 +324,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-4, 0, 0);//¤¤«ü¤¤Ãö¸`
+	glTranslatef(-4, 0, 0);//ä¸­æŒ‡ä¸­é—œç¯€
 	glRotatef(anklef4a[1], anklef4x[1], anklef4y[1], anklef4z[1]);
 
 	glPushMatrix();
@@ -337,7 +333,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-3.0, 0, 0.0);//¤¤«ü¸`2
+	glTranslatef(-3.0, 0, 0.0);//ä¸­æŒ‡ç¯€2
 
 	glPushMatrix();
 	glScalef(1, 0.6, 1);
@@ -346,7 +342,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-3, 0, 0.0);//¤¤«ü¤WÃö¸`
+	glTranslatef(-3, 0, 0.0);//ä¸­æŒ‡ä¸Šé—œç¯€
 	glRotatef(anklef4a[2], anklef4x[2], anklef4y[2], anklef4z[2]);
 
 	glPushMatrix();
@@ -355,7 +351,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-2.5, 0.0, 0.0); //¤¤«ü¸`3
+	glTranslatef(-2.5, 0.0, 0.0); //ä¸­æŒ‡ç¯€3
 
 	glPushMatrix();
 	glRotatef(20.0, 0, 1, 1.0);
@@ -365,12 +361,12 @@ void draw_hand(void)
 	glPopMatrix();
 
 	glPopMatrix();
-//--------¤@®Ú¤â«ü--------
+//--------ä¸€æ ¹æ‰‹æŒ‡--------
 	glTranslatef(1.5, 2, 0);
 
 	glPushMatrix();
 	glScaled(0.7, 0.7, 0.7);
-	//------------------------------¤p«ü
+	//------------------------------å°æŒ‡
 	glTranslatef(-7, -5, 0.0);
 	glRotatef(anklef5a[0], anklef5x[0], anklef5y[0], anklef5z[0]);
 
@@ -380,7 +376,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-4, 0, 0);//¤¤«ü¸`3
+	glTranslatef(-4, 0, 0);//ä¸­æŒ‡ç¯€3
 
 	glPushMatrix();
 	glScalef(1.2, 0.6, 1);
@@ -389,7 +385,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-4, 0, 0);//¤¤«ü¤¤Ãö¸`
+	glTranslatef(-4, 0, 0);//ä¸­æŒ‡ä¸­é—œç¯€
 	glRotatef(anklef5a[1], anklef5x[1], anklef5y[1], anklef5z[1]);
 
 	glPushMatrix();
@@ -398,7 +394,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-3.0, 0, 0.0);//¤¤«ü¸`2
+	glTranslatef(-3.0, 0, 0.0);//ä¸­æŒ‡ç¯€2
 
 	glPushMatrix();
 	glScalef(1, 0.6, 1);
@@ -407,7 +403,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-3, 0, 0.0);//¤¤«ü¤WÃö¸`
+	glTranslatef(-3, 0, 0.0);//ä¸­æŒ‡ä¸Šé—œç¯€
 	glRotatef(anklef5a[2], anklef5x[2], anklef5y[2], anklef5z[2]);
 
 	glPushMatrix();
@@ -416,7 +412,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-2.5, 0.0, 0.0); //¤¤«ü¸`3
+	glTranslatef(-2.5, 0.0, 0.0); //ä¸­æŒ‡ç¯€3
 
 	glPushMatrix();
 	glRotatef(20.0, 0, 1, 1.0);
@@ -426,13 +422,13 @@ void draw_hand(void)
 	glPopMatrix();
 
 	glPopMatrix();
-//--------¤@®Ú¤â¥u----------------------
+//--------ä¸€æ ¹æ‰‹åª----------------------
 	glTranslatef(1, -13.0, 0);
 
-	glPushMatrix();//­¹«ü±µ´xÃö¸`
+	glPushMatrix();//é£ŸæŒ‡æŽ¥æŽŒé—œç¯€
 	glRotated(30, 0, 0, 1);
 	glScaled(0.65, 0.65, 0.65);
-//------------------------------¥À«ü
+//------------------------------æ¯æŒ‡
 	glTranslatef(-7, -5, 0.0);
 	glRotatef(anklef1a[0], anklef1x[0], anklef1y[0], anklef1z[0]);
 
@@ -442,7 +438,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-4, 0, 0);//­¹«ü¸`3
+	glTranslatef(-4, 0, 0);//é£ŸæŒ‡ç¯€3
 
 	glPushMatrix();
 	glScalef(1.2, 0.6, 1);
@@ -451,7 +447,7 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-4, 0, 0);//­¹«ü¤¤Ãö¸`
+	glTranslatef(-4, 0, 0);//é£ŸæŒ‡ä¸­é—œç¯€
 	glRotatef(anklef1a[1], anklef1x[1], anklef1y[1], anklef1z[1]);
 
 	glPushMatrix();
@@ -460,32 +456,21 @@ void draw_hand(void)
 	glPopMatrix();
 
 	//-----------------------------
-	glTranslatef(-3.0, 0, 0.0);//­¹«ü¸`2
+	glTranslatef(-3.0, 0, 0.0);//é£ŸæŒ‡ç¯€2
 
-	glPushMatrix();
-	glScalef(1, 0.6, 1);
-	glColor3ub(89, 197, 255);
-	glutSolidSphere(2.0, 30.0, 30.0);
-	glPopMatrix();
-
-	//-----------------------------
-	glTranslatef(-3, 0, 0.0);//­¹«ü¤WÃö¸`
-	glRotatef(anklef1a[2], anklef1x[2], anklef1y[2], anklef1z[2]);
-
-	glPushMatrix();
-	glColor3ub(0, 0, 0);
-	glutSolidSphere(1.0, 30.0, 30.0);
-	glPopMatrix();
-
-	//-----------------------------
-	glTranslatef(-2.5, 0.0, 0.0); //­¹«ü¸`3
-
+	//glPushMatrix();
+	//glScalef(1, 0.6, 1);
+	//glColor3ub(89, 197, 255);
+	//glutSolidSphere(2.0, 30.0, 30.0);
+	//glPopMatrix();
 	glPushMatrix();
 	glRotatef(20.0, 0, 1, 1.0);
-	glScalef(1.0, 0.6, 1.0);
+	glScalef(1.5, 0.9, 1.0);
 	glColor3ub(0, 177, 98);
 	glutSolidSphere(1.7, 30.0, 30.0);
 	glPopMatrix();
+
+	////-----------------------------
 
 	glPopMatrix();
 }
@@ -494,7 +479,7 @@ void draw_hand(void)
 void draw(void)
 {
 	glTranslatef(55.0, 0.0, -200.0);
-	glRotatef(180, 1, 0, 0);            //¨¤«×,X,Y,Z      
+	glRotatef(180, 1, 0, 0);            //è§’åº¦,X,Y,Z      
 	draw_hand();
 }
 
@@ -594,99 +579,94 @@ void init(void)
 	glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 }
 
-void rock_pos(void) //¥ÛÀY
+void rock_pos(void) //çŸ³é ­
 {
 	if (anklea >= 0)
 		anklea--;
 	state = 0;
 
 	//-----------------------------------------	
-	if (anklef1a[0] <= 60)
-		anklef1a[0]++;    //­¹«ü±µ´x
+	if (anklef1a[0] <= 90)
+		anklef1a[0]++;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef1x[0] = 0;
 	anklef1y[0] = 0;
-	anklef1z[0] = 0;
+	anklef1z[0] = -1;
 
-	if (anklef1a[1] >= -90)
-		anklef1a[1]--;    //­¹«ü1
+	if (anklef1a[1] <= 90)
+		anklef1a[1]++;    //é£ŸæŒ‡1
 	anklef1x[1] = 0;
-	anklef1y[1] = -1;
-	anklef1z[1] = 0;
+	anklef1y[1] = 0;
+	anklef1z[1] = -1;
 
-	if (anklef1a[2] >= -90)
-		anklef1a[2]--;    //­¹«ü2
-	anklef1x[2] = 0;
-	anklef1y[2] = -1;
-	anklef1z[2] = 0;
 	//-----------------------------------------	
 	if (anklef2a[0] >= -90)
-		anklef2a[0]--;    //­¹«ü±µ´x
+		anklef2a[0]--;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef2x[0] = 0;
 	anklef2y[0] = 1;
 	anklef2z[0] = 0;
 
 	if (anklef2a[1] >= -90)
-		anklef2a[1]--;    //­¹«ü1
+		anklef2a[1]--;    //é£ŸæŒ‡1
 	anklef2x[1] = 0;
 	anklef2y[1] = 1;
 	anklef2z[1] = 0;
 
 	if (anklef2a[2] >= -90)
-		anklef2a[2]--;    //­¹«ü2
+		anklef2a[2]--;    //é£ŸæŒ‡2
 	anklef2x[2] = 0;
 	anklef2y[2] = 1;
 	anklef2z[2] = 0;
 	//------------------------------------
 	if (anklef3a[0] >= -90)
-		anklef3a[0]--;    //­¹«ü±µ´x
+		anklef3a[0]--;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef3x[0] = 0;
 	anklef3y[0] = 1;
 	anklef3z[0] = 0;
 
 	if (anklef3a[1] >= -90)
-		anklef3a[1]--;    //­¹«ü1
+		anklef3a[1]--;    //é£ŸæŒ‡1
 	anklef3x[1] = 0;
 	anklef3y[1] = 1;
 	anklef3z[1] = 0;
 
 	if (anklef3a[2] >= -90)
-		anklef3a[2]--;    //­¹«ü2
+		anklef3a[2]--;    //é£ŸæŒ‡2
 	anklef3x[2] = 0;
 	anklef3y[2] = 1;
 	anklef3z[2] = 0;
 	//------------------------------------
 	if (anklef4a[0] >= -90)
-		anklef4a[0]--;    //­¹«ü±µ´x
+		anklef4a[0]--;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef4x[0] = 0;
 	anklef4y[0] = 1;
 	anklef4z[0] = 0;
 
 	if (anklef4a[1] >= -90)
-		anklef4a[1]--;    //­¹«ü1
+		anklef4a[1]--;    //é£ŸæŒ‡1
 	anklef4x[1] = 0;
 	anklef4y[1] = 1;
 	anklef4z[1] = 0;
 
 	if (anklef4a[2] >= -90)
-		anklef4a[2]--;    //­¹«ü2
+		anklef4a[2]--;    //é£ŸæŒ‡2
 	anklef4x[2] = 0;
 	anklef4y[2] = 1;
 	anklef4z[2] = 0;
 	//------------------------------------
 	if (anklef5a[0] >= -90)
-		anklef5a[0]--;    //­¹«ü±µ´x
+		anklef5a[0]--;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef5x[0] = 0;
 	anklef5y[0] = 1;
 	anklef5z[0] = 0;
 
 	if (anklef5a[1] >= -90)
-		anklef5a[1]--;    //­¹«ü1
+		anklef5a[1]--;    //é£ŸæŒ‡1
 	anklef5x[1] = 0;
 	anklef5y[1] = 1;
 	anklef5z[1] = 0;
 
 	if (anklef5a[2] >= -90)
-		anklef5a[2]--;    //­¹«ü2
+		anklef5a[2]--;    //é£ŸæŒ‡2
 	anklef5x[2] = 0;
 	anklef5y[2] = 1;
 	anklef5z[2] = 0;
@@ -695,7 +675,7 @@ void rock_pos(void) //¥ÛÀY
 	glutPostRedisplay();
 }
 
-void one(void)                 //¤£
+void one(void)                 //ä¸
 {
 	if (anklea >= 0)
 		anklea--;
@@ -705,67 +685,67 @@ void one(void)                 //¤£
 	if (anklef2a[0] <= 25)
 		anklef2a[0]++;
 
-	anklef2x[0] = 0;    //­¹«ü±µ´x
+	anklef2x[0] = 0;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef2y[0] = 0;
 	anklef2z[0] = 1;
 
-	anklef2x[1] = 0;    //­¹«ü1
+	anklef2x[1] = 0;    //é£ŸæŒ‡1
 	anklef2y[1] = 0;
 	anklef2z[1] = 0;
 
-	anklef2x[2] = 0;    //­¹«ü2
+	anklef2x[2] = 0;    //é£ŸæŒ‡2
 	anklef2y[2] = 0;
 	anklef2z[2] = 0;
 	//-----------------------------------------	
 	if (anklef3a[0] <= 10)
 		anklef3a[0]++;
 
-	anklef3x[0] = 0;    //­¹«ü±µ´x
+	anklef3x[0] = 0;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef3y[0] = 0;
 	anklef3z[0] = 1;
 
-	anklef3x[1] = 0;    //­¹«ü1
+	anklef3x[1] = 0;    //é£ŸæŒ‡1
 	anklef3y[1] = 0;
 	anklef3z[1] = 0;
 
-	anklef3x[2] = 0;    //­¹«ü2
+	anklef3x[2] = 0;    //é£ŸæŒ‡2
 	anklef3y[2] = 0;
 	anklef3z[2] = 0;
 	//-----------------------------------------	
 	if (anklef4a[0] >= -15)
 		anklef4a[0]--;
 
-	anklef4x[0] = 0;    //­¹«ü±µ´x
+	anklef4x[0] = 0;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef4y[0] = 0;
 	anklef4z[0] = 1;
 
-	anklef4x[1] = 0;    //­¹«ü1
+	anklef4x[1] = 0;    //é£ŸæŒ‡1
 	anklef4y[1] = 0;
 	anklef4z[1] = 0;
 
-	anklef4x[2] = 0;    //­¹«ü2
+	anklef4x[2] = 0;    //é£ŸæŒ‡2
 	anklef4y[2] = 0;
 	anklef4z[2] = 0;
 	//-----------------------------------------
 	if (anklef5a[0] >= -30)
 		anklef5a[0]--;
 
-	anklef5x[0] = 0;    //­¹«ü±µ´x
+	anklef5x[0] = 0;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef5y[0] = 0;
 	anklef5z[0] = 1;
 
-	anklef5x[1] = 0;    //­¹«ü1
+	anklef5x[1] = 0;    //é£ŸæŒ‡1
 	anklef5y[1] = 0;
 	anklef5z[1] = 0;
 
-	anklef5x[2] = 0;    //­¹«ü2
+	anklef5x[2] = 0;    //é£ŸæŒ‡2
 	anklef5y[2] = 0;
 	anklef5z[2] = 0;
 
 	glutPostRedisplay();
 }
 
-void scissors(void)                 //°Å¤M
+void scissors(void)                 //å‰ªåˆ€
 {
 	if (anklea >= 0)
 		anklea--;
@@ -774,86 +754,81 @@ void scissors(void)                 //°Å¤M
 
 	//-----------------------------------------	
 	if (anklef1a[0] <= 90)
-		anklef1a[0]++;    //­¹«ü±µ´x
+		anklef1a[0]++;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef1x[0] = 0;
 	anklef1y[0] = 0;
-	anklef1z[0] = 1;
+	anklef1z[0] = -1;
 
-	if (anklef1a[1] >= -90)
-		anklef1a[1]--;    //­¹«ü1
+	if (anklef1a[1] <= 90)
+		anklef1a[1]++;    //é£ŸæŒ‡1
 	anklef1x[1] = 0;
-	anklef1y[1] = 1;
-	anklef1z[1] = 0;
+	anklef1y[1] = 0;
+	anklef1z[1] = -1;
 
-	if (anklef1a[2] >= -90)
-		anklef1a[2]--;    //­¹«ü2
-	anklef1x[2] = 0;
-	anklef1y[2] = 0;
-	anklef1z[2] = 0;
 	//-----------------------------------------	
 	if (anklef2a[0] <= 25)
-		anklef2a[0]++;    //­¹«ü±µ´x
+		anklef2a[0]++;    //é£ŸæŒ‡æŽ¥æŽŒ
 
-	anklef2x[0] = 0;    //­¹«ü±µ´x
+	anklef2x[0] = 0;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef2y[0] = 0;
 	anklef2z[0] = 1;
 
-	anklef2x[1] = 0;    //­¹«ü1
+	anklef2x[1] = 0;    //é£ŸæŒ‡1
 	anklef2y[1] = 0;
 	anklef2z[1] = 0;
 
-	anklef2x[2] = 0;    //­¹«ü2
+	anklef2x[2] = 0;    //é£ŸæŒ‡2
 	anklef2y[2] = 0;
 	anklef2z[2] = 0;
 	//-----------------------------------------	
 	if (anklef3a[0] >= -15)
-		anklef3a[0]--;    //­¹«ü±µ´x
+		anklef3a[0]--;    //é£ŸæŒ‡æŽ¥æŽŒ
 
-	anklef3x[0] = 0;    //­¹«ü±µ´x
+	anklef3x[0] = 0;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef3y[0] = 0;
 	anklef3z[0] = 1;
 
-	anklef3x[1] = 0;    //­¹«ü1
+	anklef3x[1] = 0;    //é£ŸæŒ‡1
 	anklef3y[1] = 0;
 	anklef3z[1] = 0;
 
-	anklef3x[2] = 0;    //­¹«ü2
+	anklef3x[2] = 0;    //é£ŸæŒ‡2
 	anklef3y[2] = 0;
 	anklef3z[2] = 0;
 	//-----------------------------------------	
 	if (anklef4a[0] >= -90)
-		anklef4a[0]--;    //­¹«ü±µ´x
+		anklef4a[0]--;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef4x[0] = 0;
 	anklef4y[0] = 1;
 	anklef4z[0] = 0;
 
 	if (anklef4a[1] >= -90)
-		anklef4a[1]--;    //­¹«ü1
+		anklef4a[1]--;    //é£ŸæŒ‡1
 	anklef4x[1] = 0;
 	anklef4y[1] = 1;
 	anklef4z[1] = 0;
 
 
 	if (anklef4a[2] >= -90)
-		anklef4a[2]--;    //­¹«ü2
+		anklef4a[2]--;    //é£ŸæŒ‡2
 	anklef4x[2] = 0;
 	anklef4y[2] = 1;
 	anklef4z[2] = 0;
 	//------------------------------------
 	if (anklef5a[0] >= -90)
-		anklef5a[0]--;    //­¹«ü±µ´x
+		anklef5a[0]--;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef5x[0] = 0;
 	anklef5y[0] = 1;
 	anklef5z[0] = 0;
 
 	if (anklef5a[1] >= -90)
-		anklef5a[1]--;    //­¹«ü1
+		anklef5a[1]--;    //é£ŸæŒ‡1
 	anklef5x[1] = 0;
 	anklef5y[1] = 1;
 	anklef5z[1] = 0;
 
 	if (anklef5a[2] >= -90)
-		anklef5a[2]--;    //­¹«ü2
+		anklef5a[2]--;    //é£ŸæŒ‡2
 	anklef5x[2] = 0;
 	anklef5y[2] = 1;
 	anklef5z[2] = 0;
@@ -861,84 +836,80 @@ void scissors(void)                 //°Å¤M
 	glutPostRedisplay();
 }
 
-void cheat(void)                 //§@¹ú
+void cheat(void)                 //ä½œå¼Š
 {
 	if (anklea >= 0)
 		anklea--;
 	state = 0;
 
 	//-----------------------------------------	
-	anklef2x[0] = 0;    //­¹«ü±µ´x
+	anklef2x[0] = 0;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef2y[0] = 0;
 	anklef2z[0] = 0;
 
-	anklef2x[1] = 0;    //­¹«ü1
+	anklef2x[1] = 0;    //é£ŸæŒ‡1
 	anklef2y[1] = 0;
 	anklef2z[1] = 0;
 
-	anklef2x[2] = 0;    //­¹«ü2
+	anklef2x[2] = 0;    //é£ŸæŒ‡2
 	anklef2y[2] = 0;
 	anklef2z[2] = 0;
 	//-----------------------------------------	
-	anklef3x[0] = 0;    //­¹«ü±µ´x
+	anklef3x[0] = 0;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef3y[0] = 0;
 	anklef3z[0] = 0;
 
-	anklef3x[1] = 0;    //­¹«ü1
+	anklef3x[1] = 0;    //é£ŸæŒ‡1
 	anklef3y[1] = 0;
 	anklef3z[1] = 0;
 
-	anklef3x[2] = 0;    //­¹«ü2
+	anklef3x[2] = 0;    //é£ŸæŒ‡2
 	anklef3y[2] = 0;
 	anklef3z[2] = 0;
 	//-----------------------------------------	
 	if (anklef4a[0] >= -90)
-		anklef4a[0]--;    //­¹«ü±µ´x
+		anklef4a[0]--;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef4x[0] = 0;
 	anklef4y[0] = 1;
 	anklef4z[0] = 0;
 
 	if (anklef4a[1] >= -90)
-		anklef4a[1]--;    //­¹«ü1
+		anklef4a[1]--;    //é£ŸæŒ‡1
 	anklef4x[1] = 0;
 	anklef4y[1] = 1;
 	anklef4z[1] = 0;
 
 	if (anklef4a[2] >= -90)
-		anklef4a[2]--;    //­¹«ü2
+		anklef4a[2]--;    //é£ŸæŒ‡2
 	anklef4x[2] = 0;
 	anklef4y[2] = 1;
 	anklef4z[2] = 0;
 	//------------------------------------
 	if (anklef5a[0] >= -90)
-		anklef5a[0]--;    //­¹«ü±µ´x
+		anklef5a[0]--;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef5x[0] = 0;
 	anklef5y[0] = 1;
 	anklef5z[0] = 0;
 
 	if (anklef5a[1] >= -90)
-		anklef5a[1]--;    //­¹«ü1
+		anklef5a[1]--;    //é£ŸæŒ‡1
 	anklef5x[1] = 0;
 	anklef5y[1] = 1;
 	anklef5z[1] = 0;
 
 	if (anklef5a[2] >= -90)
-		anklef5a[2]--;    //­¹«ü2
+		anklef5a[2]--;    //é£ŸæŒ‡2
 	anklef5x[2] = 0;
 	anklef5y[2] = 1;
 	anklef5z[2] = 0;
 	//-----------------------------------------	
-	anklef1x[0] = 0;    //­¹«ü±µ´x
+	anklef1x[0] = 0;    //é£ŸæŒ‡æŽ¥æŽŒ
 	anklef1y[0] = 0;
 	anklef1z[0] = 0;
 
-	anklef1x[1] = 0;    //­¹«ü1
+	anklef1x[1] = 0;    //é£ŸæŒ‡1
 	anklef1y[1] = 0;
 	anklef1z[1] = 0;
-
-	anklef1x[2] = 0;    //­¹«ü2
-	anklef1y[2] = 0;
-	anklef1z[2] = 0;
 
 	glutPostRedisplay();
 }
@@ -973,13 +944,13 @@ void timerFunction(int value)
 	case 0:
 		standby();
 		break;
-	case 1://¥¬
+	case 1://å¸ƒ
 		one();
 		break;
-	case 2:  //¥ÛÀY
+	case 2:  //çŸ³é ­
 		rock_pos();
 		break;
-	case 3://°Å¤M
+	case 3://å‰ªåˆ€
 		scissors();
 		break;
 	case 4:
@@ -1013,12 +984,3 @@ int main(int argc, char** argv)
 	return 0;
 
 }
-
-
-
-
-
-
-
-
-
